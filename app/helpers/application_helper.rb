@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def priority_label priority
+  def priority_label(priority)
     case priority
     when 1 then "低"
     when 2 then "中"
