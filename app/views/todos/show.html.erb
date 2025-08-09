@@ -1,0 +1,6 @@
+<h1>詳細</h1>
+<li><%= check_box_tag "todo_done_#{@todo.id}", "1", @todo.done, disabled: true %></li>
+<li><%= "タスク：#{@todo.task}" %></li>
+<li><%= "優先度：#{priority_label @todo.priority}" %></li>
+<li><%= "締切：#{@todo.deadline || "なし"}" %></li>
+<%= link_to "一覧へ戻る", index_path %>
