@@ -3,7 +3,7 @@
   <ul>
     <li><%= check_box_tag "todo_done_#{todo.id}", "1", todo.done, disabled: true %></li>
     <li><%= "タスク：#{todo.task}" %></li>
-    <li><%= "締切：#{todo.deadline || "なし"}" %></li>
+    <li><%= "締切：#{todo.deadline ? l(todo.deadline) : "なし"}" %></li>
     <a href="<%= show_path(todo) %>">詳細</a>
   </ul>
 <% end %>
