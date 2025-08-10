@@ -3,4 +3,4 @@
 <li><%= "タスク：#{@todo.task}" %></li>
 <li><%= "優先度：#{priority_label @todo.priority}" %></li>
 <li><%= "締切：#{@todo.deadline ? l(@todo.deadline) : "なし"}" %></li>
-<%= link_to "一覧へ戻る", index_path %>
+<%= link_to "一覧へ戻る", todos_path %>
