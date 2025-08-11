@@ -7,7 +7,8 @@
     <li><%= check_box_tag "todo_done_#{todo.id}", "1", todo.done, disabled: true %></li>
     <li><%= "タスク：#{todo.task}" %></li>
     <li><%= "締切：#{todo.deadline ? l(todo.deadline) : "なし"}" %></li>
-    <a href="<%= todo_path(todo) %>">詳細</a>
-    <a href="<%= edit_todo_path(todo) %>">編集</a>
+    <%= link_to "詳細", todo_path(todo) %>
+    | <%= link_to "編集", edit_todo_path(todo) %>
+    | <%= link_to "削除", todo_path(todo), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
   </ul>
 <% end %>
