@@ -1,4 +1,5 @@
 <h1>TODO 一覧</h1>
+
 <%= link_to "新規作成", new_todo_path %>
 
 <% @todos.each do |todo| %>
@@ -7,5 +8,6 @@
     <li><%= "タスク：#{todo.task}" %></li>
     <li><%= "締切：#{todo.deadline ? l(todo.deadline) : "なし"}" %></li>
     <a href="<%= todo_path(todo) %>">詳細</a>
+    <a href="<%= edit_todo_path(todo) %>">編集</a>
   </ul>
 <% end %>
