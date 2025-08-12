@@ -1,7 +1,7 @@
-<%= form_with model: @todo, local: true do |form| %>
+<%= form_with model: @todo, local: true, class: "todo" do |form| %>
   <div>
     <%= form.label :task, "タスク" %>
-    <%= form.text_field :task %>
+    <%= form.text_field :task, class: "form-task" %>
   </div>
   <div>
     <%= form.label :priority, "優先度" %>
@@ -13,6 +13,6 @@
   </div>
 
   <div>
-    <%= form.submit @todo.new_record? ? "作成" : "更新" %>
+    <%= form.submit @todo.new_record? ? "作成" : "更新", class: "button" %>
   </div>
 <% end %>
