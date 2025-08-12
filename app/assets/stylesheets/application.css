@@ -14,7 +14,7 @@
     all: unset;
     display: inline-block;
     margin: 10px 3px;
-    padding: 0.5em 1.5em;
+    padding: 0.5em 1.0em;
     background-color: #61b0e2;
     box-shadow: 0 5px 0 #369ada;
     border-radius: 2em;
@@ -22,6 +22,11 @@
     cursor: pointer;
     text-decoration: none;
     transition: all 0.3s;
+}
+
+.button-delete {
+    background-color: #fe344c;
+    box-shadow: 0 5px 0 #c90f25;
 }
 
 .button:hover {

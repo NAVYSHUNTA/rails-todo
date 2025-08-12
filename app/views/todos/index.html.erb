@@ -9,6 +9,6 @@
     <li><%= "締切：#{todo.deadline ? l(todo.deadline) : "なし"}" %></li>
     <%= link_to "詳細", todo_path(todo), class: "button" %>
     <%= link_to "編集", edit_todo_path(todo), class: "button" %>
-    <%= link_to "削除", todo_path(todo), class: "button", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
+    <%= link_to "削除", todo_path(todo), class: "button button-delete", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
   </ul>
 <% end %>
