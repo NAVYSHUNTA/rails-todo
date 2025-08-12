@@ -7,8 +7,8 @@
     <li><%= check_box_tag "todo_done_#{todo.id}", "1", todo.done, disabled: false, class: "check-box" %></li>
     <li><%= "タスク：#{todo.task}" %></li>
     <li><%= "締切：#{todo.deadline ? l(todo.deadline) : "なし"}" %></li>
-    <%= link_to "詳細", todo_path(todo), class: "button" %>
-    <%= link_to "編集", edit_todo_path(todo), class: "button" %>
-    <%= link_to "削除", todo_path(todo), class: "button button-delete", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
+    <li><%= link_to "詳細", todo_path(todo), class: "button button-align-left" %></li>
+    <li><%= link_to "編集", edit_todo_path(todo), class: "button button-align-left" %></li>
+    <li><%= link_to "削除", todo_path(todo), class: "button button-delete button-align-left", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %></li>
   </ul>
 <% end %>

@@ -6,6 +6,12 @@
     list-style: none;
 }
 
+.todo::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
 .form-task {
     width: 80%;
 }
@@ -22,6 +28,10 @@
     cursor: pointer;
     text-decoration: none;
     transition: all 0.3s;
+}
+
+.button-align-left {
+    float: left;
 }
 
 .button-delete {
