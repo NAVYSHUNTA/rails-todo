@@ -28,9 +28,15 @@ class TodosController < ApplicationController
   def update
     @todo = Todo.find(params[:id])
     if @todo.update(todo_params)
-      redirect_to @todo
+      respond_to do |format|
+        format.json { head :ok }
+        format.html { redirect_to @todo }
+      end
     else
-      render :edit
+      respond_to do |format|
+        format.json { render json: @todo.errors, status: :unprocessable_entity }
+        format.html { render :edit }
+      end
     end
   end
 
@@ -43,6 +49,6 @@ class TodosController < ApplicationController
   private
 
   def todo_params
-    params.require(:todo).permit(:task, :priority, :deadline)
+    params.require(:todo).permit(:task, :priority, :done, :deadline)
   end
 end
