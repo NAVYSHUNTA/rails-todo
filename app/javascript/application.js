@@ -3,7 +3,7 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 // TODO が完了しているかどうかで見た目を変える
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
     document.querySelectorAll(".check-box").forEach(checkbox => {
         updateTodoStyle(checkbox);
 
