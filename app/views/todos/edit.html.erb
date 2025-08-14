@@ -3,6 +3,7 @@
 <div class="todo">
   <%= check_box_tag "todo[done]", "1", @todo.done, id: "todo_done_#{@todo.id}", data: { id: @todo.id } %>
   <%= render "form" %>
+  <%= link_to "削除", todo_path(@todo), class: "button button-delete button-align-left", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
 </div>
 
 <%= link_to "一覧へ戻る", todos_path, class: "button spaced" %>
