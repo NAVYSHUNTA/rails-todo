@@ -3,12 +3,14 @@
 <%= link_to "新規作成", new_todo_path, class: "button" %>
 
 <% @todos.each do |todo| %>
-  <ul class="todo">
-    <li><%= check_box_tag "todo[done]", "1", todo.done, id: "todo_done_#{todo.id}", data: { id: todo.id } %></li>
-    <li><%= "タスク：#{todo.task}" %></li>
-    <li><%= "締切：#{todo.deadline ? l(todo.deadline) : "なし"}" %></li>
-    <li><%= link_to "詳細", todo_path(todo), class: "button button-align-left" %></li>
-    <li><%= link_to "編集", edit_todo_path(todo), class: "button button-align-left" %></li>
-    <li><%= link_to "削除", todo_path(todo), class: "button button-delete button-align-left", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %></li>
-  </ul>
+  <div class="spaced">
+    <ul class="todo">
+      <li><%= check_box_tag "todo[done]", "1", todo.done, id: "todo_done_#{todo.id}", data: { id: todo.id } %></li>
+      <li><%= "タスク：#{todo.task}" %></li>
+      <li><%= "締切：#{todo.deadline ? l(todo.deadline) : "なし"}" %></li>
+      <li><%= link_to "詳細", todo_path(todo), class: "button button-align-left" %></li>
+      <li><%= link_to "編集", edit_todo_path(todo), class: "button button-align-left" %></li>
+      <li><%= link_to "削除", todo_path(todo), class: "button button-delete button-align-left", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %></li>
+    </ul>
+  </div>
 <% end %>

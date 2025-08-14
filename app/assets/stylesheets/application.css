@@ -1,6 +1,6 @@
 .todo {
     background-color: lightblue;
-    padding: 1em;
+    padding: 0.5em;
     border-radius: 1em;
     border: 0.3em solid gray;
     list-style: none;
@@ -53,4 +53,12 @@ input[type="checkbox"] {
     width: 1.5em;
     height: 1.5em;
     cursor: pointer;
+}
+
+ul {
+    margin: 0;
+}
+
+.spaced {
+    margin: 1em 0;
 }
