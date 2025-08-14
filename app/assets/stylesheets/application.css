@@ -1,3 +1,7 @@
+body {
+    color: #333;
+}
+
 .todo {
     background-color: lightblue;
     padding: 0.5em;
@@ -47,6 +51,12 @@
 .button:active {
     box-shadow: none;
     transform: translateY(5px);
+}
+
+form {
+    input, select {
+        color: #333;
+    }
 }
 
 input[type="checkbox"] {
