@@ -50,3 +50,13 @@ function updateTodoStyle(checkbox, updateDatabase) {
         updateTodoStyle(checkbox);
     });
 }
+
+// 編集時に Enter による submit を無効化する
+document.addEventListener("turbo:load", () => {
+    const form = document.querySelector("form");
+    form.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" && event.target.tagName === "INPUT" && event.target.type !== "submit") {
+            event.preventDefault();
+        }
+    });
+});
