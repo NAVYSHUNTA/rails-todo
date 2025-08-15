@@ -7,6 +7,7 @@
     <ul class="todo">
       <li><%= check_box_tag "todo[done]", "1", todo.done, id: "todo_done_#{todo.id}", data: { id: todo.id } %></li>
       <li><%= "タスク：#{todo.task}" %></li>
+      <li><%= "優先度：#{priority_label(todo.priority)}" %></li>
       <li><%= "締切日：#{todo.deadline ? l(todo.deadline) : "なし"}" %></li>
       <li><%= link_to "詳細", todo_path(todo), class: "button button-align-left" %></li>
       <li><%= link_to "編集", edit_todo_path(todo), class: "button button-align-left" %></li>
