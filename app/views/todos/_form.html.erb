@@ -1,18 +1,38 @@
-<%= form_with model: @todo, local: true do |form| %>
-  <div>
-    <%= form.label :task, "タスク" %>
-    <%= form.text_field :task, class: "form-task" %>
-  </div>
-  <div>
-    <%= form.label :priority, "優先度" %>
-    <%= form.select :priority, options_for_select([["高", 3], ["中", 2], ["低", 1]], @todo.priority) %>
-  </div>
-  <div>
-    <%= form.label :deadline, "締切日" %>
-    <%= form.datetime_local_field :deadline %>
-  </div>
-
-  <div>
-    <%= form.submit @todo.new_record? ? "作成" : "更新", class: "button button-align-left" %>
+<% if @todo.errors.any? %>
+  <div class="todo error_explanation spaced">
+    <h2><%= pluralize(@todo.errors.count, "件のエラー") %>が発生しました</h2>
+    <ul>
+      <% @todo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   </div>
 <% end %>
+
+<div class="todo">
+  <% unless @todo.new_record? %>
+    <%= check_box_tag "todo[done]", "1", @todo.done, id: "todo_done_#{@todo.id}", data: { id: @todo.id } %>
+  <% end %>
+
+  <%= form_with model: @todo, local: true do |form| %>
+    <div>
+      <%= form.label :task, "タスク" %>
+      <%= form.text_field :task, class: "form-task" %>
+    </div>
+    <div>
+      <%= form.label :priority, "優先度" %>
+      <%= form.select :priority, options_for_select([["高", 3], ["中", 2], ["低", 1]], @todo.priority) %>
+    </div>
+    <div>
+      <%= form.label :deadline, "締切日" %>
+      <%= form.datetime_local_field :deadline %>
+    </div>
+
+    <div>
+      <%= form.submit @todo.new_record? ? "作成" : "更新", class: "button button-align-left" %>
+    </div>
+    <% unless @todo.new_record? %>
+      <%= link_to "削除", todo_path(@todo), class: "button button-delete button-align-left", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
+    <% end %>
+  <% end %>
+</div>

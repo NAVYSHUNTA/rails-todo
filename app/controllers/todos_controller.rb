@@ -17,7 +17,7 @@ class TodosController < ApplicationController
     if @todo.save
       redirect_to @todo
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -27,15 +27,14 @@ class TodosController < ApplicationController
 
   def update
     @todo = Todo.find(params[:id])
-    if @todo.update(todo_params)
-      respond_to do |format|
-        format.json { head :ok }
+
+    respond_to do |format|
+      if @todo.update(todo_params)
         format.html { redirect_to @todo }
-      end
-    else
-      respond_to do |format|
+        format.json { head :ok }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @todo.errors, status: :unprocessable_entity }
-        format.html { render :edit }
       end
     end
   end

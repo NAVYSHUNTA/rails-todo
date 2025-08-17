@@ -10,6 +10,11 @@ body {
     list-style: none;
 }
 
+.error_explanation {
+    background-color: #e60e27da;
+    color: white;
+}
+
 .todo::after {
     content: "";
     display: block;
@@ -65,7 +70,7 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
-ul {
+ul.todo {
     margin: 0;
 }
 

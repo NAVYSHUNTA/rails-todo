@@ -2,3 +2,11 @@ ja:
   time:
     formats:
       default: "%Y年%m月%d日 %H:%M"
+  activerecord:
+    attributes:
+      todo:
+          task: "タスク"
+          priority: "優先度"
+          deadline: "締切日"
+  errors:
+    format: "%{attribute}を入力してください"
