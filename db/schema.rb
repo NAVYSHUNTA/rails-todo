@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_09_085255) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_17_061723) do
   create_table "todos", force: :cascade do |t|
     t.text "task"
     t.integer "priority"
@@ -18,5 +18,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_09_085255) do
     t.datetime "deadline"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0, null: false
   end
 end

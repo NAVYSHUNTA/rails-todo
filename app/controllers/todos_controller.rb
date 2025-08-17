@@ -1,6 +1,10 @@
 class TodosController < ApplicationController
   def index
-    @todos = Todo.all
+    if params[:status].present?
+      @todos = Todo.where(status: Todo.statuses[params[:status]])
+    else
+      @todos = Todo.all
+    end
   end
 
   def show
@@ -42,12 +46,12 @@ class TodosController < ApplicationController
   def destroy
     @todo = Todo.find(params[:id])
     @todo.destroy!
-    redirect_to todos_path
+    redirect_to todos_path(status: session[:status])
   end
 
   private
 
   def todo_params
-    params.require(:todo).permit(:task, :priority, :done, :deadline)
+    params.require(:todo).permit(:task, :priority, :done, :deadline, :status)
   end
 end

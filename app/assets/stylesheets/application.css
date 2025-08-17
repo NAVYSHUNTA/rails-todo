@@ -43,7 +43,12 @@ body {
     float: left;
 }
 
-.button-delete {
+.button-yellow {
+    background-color: #ffd150;
+    box-shadow: 0 5px 0 #ffc41d;
+}
+
+.button-red {
     background-color: #fe344c;
     box-shadow: 0 5px 0 #c90f25;
 }

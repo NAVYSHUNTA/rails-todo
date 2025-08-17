@@ -1,6 +1,11 @@
 <h1>TODO 一覧</h1>
 
 <%= link_to "新規作成", new_todo_path, class: "button" %>
+<%= link_to "TODO 一覧", todos_path, class: "button" %>
+<br>
+<%= link_to "未着手の TODO 一覧", todos_path(status: "wait"), class: "button" %>
+<%= link_to "着手中の TODO 一覧", todos_path(status: "doing"), class: "button button-yellow" %>
+<%= link_to "完了済みの TODO 一覧", todos_path(status: "done"), class: "button button-red" %>
 
 <% @todos.each do |todo| %>
   <div class="spaced">
@@ -11,7 +16,7 @@
       <li><%= "締切日：#{todo.deadline ? l(todo.deadline) : "なし"}" %></li>
       <li><%= link_to "詳細", todo_path(todo), class: "button button-align-left" %></li>
       <li><%= link_to "編集", edit_todo_path(todo), class: "button button-align-left" %></li>
-      <li><%= link_to "削除", todo_path(todo), class: "button button-delete button-align-left", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %></li>
+      <li><%= link_to "削除", todo_path(todo), class: "button button-red button-align-left", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %></li>
     </ul>
   </div>
 <% end %>

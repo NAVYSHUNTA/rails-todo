@@ -32,7 +32,7 @@
       <%= form.submit @todo.new_record? ? "作成" : "更新", class: "button button-align-left" %>
     </div>
     <% unless @todo.new_record? %>
-      <%= link_to "削除", todo_path(@todo), class: "button button-delete button-align-left", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
+      <%= link_to "削除", todo_path(@todo), class: "button button-red button-align-left", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
     <% end %>
   <% end %>
 </div>
