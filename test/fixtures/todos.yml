@@ -4,7 +4,6 @@ one:
   id: 1
   task: Ruby on Rails で簡易的な TODO アプリを作成する
   priority: 3
-  done: false
   deadline: 2025-08-15 12:30
   status: "doing"
 
@@ -12,7 +11,6 @@ two:
   id: 2
   task: 夕食を作る
   priority: 1
-  done: false
   deadline: 2025-08-15 19:00
   status: "wait"
 
@@ -20,7 +18,6 @@ three:
   id: 3
   task: レポートを作成する
   priority: 2
-  done: false
   deadline: null
   status: "done"
 
@@ -28,6 +25,5 @@ four:
   id: 4
   task: レポートを作成する
   priority: 2
-  done: true
   deadline: 2025-07-07 23:59
   status: "done"
