@@ -1,7 +1,7 @@
 <h1>詳細</h1>
 
 <div>
-  <ul class="todo">
+  <ul class="todo" data-status="<%= @todo.status %>">
     <li><%= "タスク：#{@todo.task}" %></li>
     <li><%= "優先度：#{priority_label(@todo.priority)}" %></li>
     <li><%= "締切日：#{@todo.deadline ? l(@todo.deadline) : "なし"}" %></li>

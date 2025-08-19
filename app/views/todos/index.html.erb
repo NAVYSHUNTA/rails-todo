@@ -5,11 +5,11 @@
 <br>
 <%= link_to "未着手の TODO 一覧", todos_path(status: "wait"), class: "button" %>
 <%= link_to "着手中の TODO 一覧", todos_path(status: "doing"), class: "button button-yellow" %>
-<%= link_to "完了済みの TODO 一覧", todos_path(status: "done"), class: "button button-red" %>
+<%= link_to "完了済みの TODO 一覧", todos_path(status: "done"), class: "button button-gray" %>
 
 <% @todos.each do |todo| %>
   <div class="spaced">
-    <ul class="todo">
+    <ul class="todo" data-status="<%= todo.status %>">
       <li><%= "タスク：#{todo.task}" %></li>
       <li><%= "優先度：#{priority_label(todo.priority)}" %></li>
       <li><%= "締切日：#{todo.deadline ? l(todo.deadline) : "なし"}" %></li>

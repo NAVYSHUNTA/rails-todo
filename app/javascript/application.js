@@ -2,52 +2,34 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
-// TODO が完了しているかどうかで見た目を変える
+// TODO の進捗状況と背景色の対応表
+const bgColors = {
+    wait: "lightblue",
+    doing: "#ffd150",
+    done: "#bbb",
+};
+
+// TODO の進捗状況に応じて見た目を変える
 document.addEventListener("turbo:load", () => {
-    document.querySelectorAll("form.todo").forEach(form => {
-        const done = form.dataset.done === "true";
-        form.style.backgroundColor = done ? "#bbb" : "";
-    });
+    document.querySelectorAll(".todo").forEach(todo => {
+        updateTodoStyle(todo);
 
-    document.querySelectorAll("input[id^='todo'][data-id]").forEach(checkbox => {
-        updateTodoStyle(checkbox, false);
-
-        checkbox.addEventListener("change", () => {
-            updateTodoStyle(checkbox, true);
+        const statusSelect = todo.querySelector("select[name='todo[status]']");
+        if (!statusSelect) return;
+        statusSelect.addEventListener("change", (event) => {
+            const status = event.target.value;
+            todo.dataset.status = status;
+            updateTodoStyle(todo);
         });
     });
 });
 
-function updateTodoStyle(checkbox, updateDatabase) {
-    const todo = checkbox.closest(".todo");
-    if (!todo) return;
-    todo.style.backgroundColor = checkbox.checked ? "#bbb" : "";
-
+function updateTodoStyle(todo) {
+    const status = todo.dataset.status || "wait";
+    todo.style.backgroundColor = bgColors[status];
     const liItems = todo.querySelectorAll("li");
     liItems.forEach(li => {
-        li.style.textDecoration = checkbox.checked ? "line-through" : "none";
-    });
-
-    if (!updateDatabase) return;
-
-    const todoId = checkbox.dataset.id;
-    const done = checkbox.checked;
-
-    fetch(`/todos/${todoId}`, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json",
-            "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").content
-        },
-        body: JSON.stringify({ todo: { done: done} })
-    })
-    .then(response => {
-        if (!response.ok) throw new Error("更新失敗");
-    })
-    .catch(error => {
-        alert("DB更新に失敗しました");
-        checkbox.checked = !done;
-        updateTodoStyle(checkbox);
+        li.style.textDecoration = status === "done" ? "line-through" : "none";
     });
 }
 

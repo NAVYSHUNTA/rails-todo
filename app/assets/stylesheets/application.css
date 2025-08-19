@@ -37,6 +37,11 @@ body {
     cursor: pointer;
     text-decoration: none;
     transition: all 0.3s;
+    text-shadow:
+    1px 1px 3px rgba(0,0,0,0.3),
+    -1px 1px 3px rgba(0,0,0,0.3),
+    1px -1px 3px rgba(0,0,0,0.3),
+    -1px -1px 3px rgba(0,0,0,0.3);
 }
 
 .button-align-left {
@@ -51,6 +56,11 @@ body {
 .button-red {
     background-color: #fe344c;
     box-shadow: 0 5px 0 #c90f25;
+}
+
+.button-gray {
+    background-color: #aaa;
+    box-shadow: 0 5px 0 #888;
 }
 
 .button:hover {
