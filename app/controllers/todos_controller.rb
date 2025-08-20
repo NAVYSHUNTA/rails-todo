@@ -19,7 +19,7 @@ class TodosController < ApplicationController
     @todo = Todo.new(todo_params)
 
     if @todo.save
-      redirect_to @todo
+      redirect_to @todo, notice: "TODO を新規作成しました！"
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.update(todo_params)
-        format.html { redirect_to @todo }
+        format.html { redirect_to @todo, notice: "TODO を更新しました！" }
         format.json { head :ok }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -46,7 +46,7 @@ class TodosController < ApplicationController
   def destroy
     @todo = Todo.find(params[:id])
     @todo.destroy!
-    redirect_to todos_path(status: session[:status])
+    redirect_to todos_path(), notice: "TODO を削除しました！"
   end
 
   private

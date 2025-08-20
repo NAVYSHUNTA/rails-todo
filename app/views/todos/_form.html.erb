@@ -1,6 +1,6 @@
 <% if @todo.errors.any? %>
   <div class="todo error_explanation spaced">
-    <h2><%= pluralize(@todo.errors.count, "件のエラー") %>が発生しました</h2>
+    <h2><%= pluralize(@todo.errors.count, "件のエラー") %>があります</h2>
     <ul>
       <% @todo.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -27,7 +27,7 @@
     <% end %>
     <div>
       <%= form.label :deadline, "締切日" %>
-      <%= form.datetime_local_field :deadline %>
+      <%= form.datetime_local_field :deadline, value: form.object.deadline || Time.current.strftime("%Y-%m-%dT%H:%M") %>
     </div>
 
     <div>

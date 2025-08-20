@@ -7,6 +7,12 @@
 <%= link_to "着手中の TODO 一覧", todos_path(status: "doing"), class: "button button-yellow" %>
 <%= link_to "完了済みの TODO 一覧", todos_path(status: "done"), class: "button button-gray" %>
 
+<% if notice %>
+  <div class="notice_explanation spaced">
+    <%= notice %>
+  </div>
+<% end %>
+
 <% @todos.each do |todo| %>
   <div class="spaced">
     <ul class="todo" data-status="<%= todo.status %>">

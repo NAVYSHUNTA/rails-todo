@@ -1,9 +1,16 @@
 <h1>詳細</h1>
 
+<% if notice %>
+  <div class="notice_explanation spaced">
+    <%= notice %>
+  </div>
+<% end %>
+
 <div>
   <ul class="todo" data-status="<%= @todo.status %>">
     <li><%= "タスク：#{@todo.task}" %></li>
     <li><%= "優先度：#{priority_label(@todo.priority)}" %></li>
+    <li><%= "状態：#{status_label(@todo.status)}" %></li>
     <li><%= "締切日：#{@todo.deadline ? l(@todo.deadline) : "なし"}" %></li>
     <li><%= "作成日：#{l(@todo.created_at)}" %></li>
     <li><%= "最終更新日：#{l(@todo.updated_at)}" %></li>
