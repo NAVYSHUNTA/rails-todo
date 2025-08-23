@@ -1,5 +1,16 @@
 <h1>設定</h1>
 
+<% if @setting.errors.any? %>
+  <div class="todo error_explanation spaced">
+    <h2><%= pluralize(@setting.errors.count, "件のエラー") %>があります</h2>
+    <ul>
+      <% @setting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="todo">
   <h2>デフォルトの締切時間</h2>
   <%= form_with model: @setting, url: setting_path, local: true do |f| %>

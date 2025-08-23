@@ -5,8 +5,12 @@ ja:
   activerecord:
     attributes:
       todo:
-          task: "タスク"
-          priority: "優先度"
-          deadline: "締切日"
+        task: "タスク"
+        priority: "優先度"
+        deadline: "締切日"
+      setting:
+        default_deadline_days: "日数"
+        default_deadline_hours: "時間"
+        default_deadline_minutes: "分"
   errors:
     format: "%{attribute}を入力してください"
