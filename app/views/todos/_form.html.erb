@@ -27,7 +27,7 @@
     <% end %>
     <div>
       <%= form.label :deadline, "締切日" %>
-      <%= form.datetime_local_field :deadline, value: form.object.deadline || Time.current.strftime("%Y-%m-%dT%H:%M") %>
+      <%= form.datetime_local_field :deadline %>
     </div>
 
     <div>

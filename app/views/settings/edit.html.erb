@@ -1,0 +1,15 @@
+<h1>設定</h1>
+
+<div class="todo">
+  <h2>デフォルトの締切時間</h2>
+  <%= form_with model: @setting, url: setting_path, local: true do |f| %>
+    <p>
+      現在時刻から
+      <%= f.number_field :default_deadline_days, min: 0, max: 99 %> 日
+      <%= f.number_field :default_deadline_hours, min: 0, max: 23 %> 時間
+      <%= f.number_field :default_deadline_minutes, min: 0, max: 59 %> 分後
+    </p>
+
+  <%= f.submit "保存", class: "button button-align-left" %>
+  <% end %>
+</div>

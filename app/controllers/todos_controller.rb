@@ -13,6 +13,15 @@ class TodosController < ApplicationController
 
   def new
     @todo = Todo.new(params[:status])
+
+    setting = Setting.first
+    if setting
+      @todo.deadline = (Time.current +
+        setting.default_deadline_days.days +
+        setting.default_deadline_hours.hour +
+        setting.default_deadline_minutes.minutes)
+        .strftime("%Y-%m-%dT%H:%M")
+    end
   end
 
   def create
