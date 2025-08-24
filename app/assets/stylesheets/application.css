@@ -94,3 +94,37 @@ ul.todo {
 .spaced {
     margin: 1em 0;
 }
+
+header {
+    background: linear-gradient(90deg, rgb(4, 126, 174), rgb(0, 255, 255));
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    margin-bottom: 10px;
+}
+
+.header-left .page-title {
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.header-list li {
+    list-style: none;
+    font-size: 20px;
+    margin-left: 30px;
+    display: inline-block;
+}
+
+.header-list li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    text-shadow:
+    1px 1px 3px rgba(0,0,0,0.3),
+    -1px 1px 3px rgba(0,0,0,0.3),
+    1px -1px 3px rgba(0,0,0,0.3),
+    -1px -1px 3px rgba(0,0,0,0.3);
+}

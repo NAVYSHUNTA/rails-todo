@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Rails Todo" %></title>
+    <title>Todo</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -23,6 +23,21 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="header">
+      <div class="header-left">
+        <span class="page-title"><%= yield(:page_title) %></span>
+      </div>
+
+      <div class="header-list">
+        <ul>
+          <li><%= link_to "TODO", todos_path %></li>
+          <li><%= link_to "設定", edit_setting_path %></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
