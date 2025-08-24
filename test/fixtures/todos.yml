@@ -4,26 +4,33 @@ one:
   id: 1
   task: Ruby on Rails で簡易的な TODO アプリを作成する
   priority: 3
-  deadline: 2025-08-15 12:30
+  deadline: 2025-09-02 23:59
   status: "doing"
 
 two:
   id: 2
-  task: 夕食を作る
-  priority: 1
-  deadline: 2025-08-15 19:00
+  task: Ruby on Rails で簡易的な TA アプリを作成する
+  priority: 3
+  deadline: 2025-09-02 23:59
   status: "wait"
 
 three:
   id: 3
   task: レポートを作成する
-  priority: 2
-  deadline: null
+  priority: 1
+  deadline: 2025-08-22 18:15
   status: "done"
 
 four:
   id: 4
-  task: レポートを作成する
+  task: CI/CD の勉強
   priority: 2
-  deadline: 2025-07-07 23:59
-  status: "done"
+  deadline: 2025-09-30 23:59
+  status: "doing"
+
+five:
+  id: 5
+  task: AWS の勉強
+  priority: 2
+  deadline: 2025-12-31 23:59
+  status: "wait"
