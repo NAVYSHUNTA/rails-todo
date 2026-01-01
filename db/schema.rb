@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_20_230104) do
+ActiveRecord::Schema[8.1].define(version: 2025_08_20_230104) do
   create_table "settings", force: :cascade do |t|
+    t.datetime "created_at", null: false
     t.integer "default_deadline_days"
     t.integer "default_deadline_hours"
     t.integer "default_deadline_minutes"
-    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "todos", force: :cascade do |t|
-    t.text "task"
-    t.integer "priority"
-    t.datetime "deadline"
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "deadline"
+    t.integer "priority"
     t.integer "status", default: 0, null: false
+    t.text "task"
+    t.datetime "updated_at", null: false
   end
 end
