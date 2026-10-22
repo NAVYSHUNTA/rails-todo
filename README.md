@@ -5,7 +5,7 @@ A simple Ruby on Rails TODO application for a single user.
 It allows creating tasks, setting priorities and deadlines, and updating their status (wait, doing, or done).
 
 ## Ruby version
-- Ruby 3.4.2
+- Ruby 3.4.11
 
 ## System dependencies
 - Rails 8.0.2
